@@ -18,7 +18,7 @@
         
             return $cardapio;
         }
-        static function excluir($id){
+        static function excluirPizza($id){
         
             $pizzaDAO = new PizzaDAO();
             try{

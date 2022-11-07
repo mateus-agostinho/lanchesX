@@ -5,11 +5,13 @@
     $acao = $_GET['acao'];
 
     if($acao == "cadastrarPizza"){
+        $tipos = $_POST['tipos'];
         $nome = $_POST['nome'];
         $valor = $_POST['valor'];
         $descricao = $_POST['descricao'];
 
         $pizza = new Pizza();
+        $pizza->setTipos($tipos);
         $pizza->setNome($nome);
         $pizza->setValor($valor);
         $pizza->setDescricao($descricao);

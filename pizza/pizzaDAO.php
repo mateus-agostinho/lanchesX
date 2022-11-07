@@ -8,11 +8,12 @@
                 $conexao = new PDO("mysql:host=localhost;dbname=lanche", "root", "");
 
                 $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "INSERT INTO Pizza(nome,valor, descricao) VALUES (?,?,?)";
+                $sql = "INSERT INTO pizza(tipos,nome,valor,descricao) VALUES (?,?,?,?)";
                 $stmt = $conexao->prepare($sql);
-                $stmt->bindValue(1,$pizza->getNome());
-                $stmt->bindValue(2,$pizza->getValor());
-                $stmt->bindValue(3,$pizza->getDescricao());
+                $stmt->bindValue(1,$pizza->getTipos());
+                $stmt->bindValue(2,$pizza->getNome());
+                $stmt->bindValue(3,$pizza->getValor());
+                $stmt->bindValue(4,$pizza->getDescricao());
                 $stmt->execute();
 
             }catch(PDOException $erro){
@@ -37,6 +38,7 @@
                 while ($linha = $stmt->fetch(PDO::FETCH_OBJ)){ //está pegando a linha e transformando em um objeto
                     $pizza = new Pizza();
                     $pizza->setId($linha->id);
+                    $pizza->setTipos($linha->tipos);
                     $pizza->setNome($linha->nome);
                     $pizza->setValor($linha->valor);
                     $pizza->setDescricao($linha->descricao);
