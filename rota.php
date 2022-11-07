@@ -5,7 +5,26 @@
     $acao = $_GET['acao'];
 
     if($acao == "cadastrarPizza"){
-        $nome = $_POST['']
-    }
+        $nome = $_POST['nome'];
+        $valor = $_POST['valor'];
+        $descricao = $_POST['descricao'];
+
+        $pizza = new Pizza();
+        $pizza->setNome($nome);
+        $pizza->setValor($valor);
+        $pizza->setDescricao($descricao);
+
+        try{
+            PizzaControlador::cadastrarPizza($pizza);
+            header('location: sucesso.html');
+        }catch(PDOException $erro){
+            header('location: error.html');
+        }
+    }/* else if($acao == "verCardapio"){
+        $pizzaControlador = new PizzaControlador();
+        $cardapio = PizzaControlador::cardapio();
+        session_start();
+
+    } */
 
 ?>
