@@ -10,7 +10,11 @@
 
     <form action="rota.php?acao=cadastrarPizza" method="POST">
         <label >Tipos</label>
-        <input type="text" name="tipos">
+        <select name="tipos">
+            <option value="Pizza">Pizza</option>
+            <option value="Sanduiches">Sanduiches</option>
+            <option value="Bebidas">Bebidas</option>
+        </select>
         <label>Nome:</label>
         <input type="text" name="nome">
         <label>valor:</label>

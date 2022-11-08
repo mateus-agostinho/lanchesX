@@ -22,11 +22,6 @@
         }catch(PDOException $erro){
             header('location: error.html');
         }
-    }/* else if($acao == "verCardapio"){
-        $pizzaControlador = new PizzaControlador();
-        $cardapio = PizzaControlador::cardapio();
-        session_start();
-
-    } */
+    }
 
 ?>
